@@ -2,7 +2,7 @@
 
 module Facturama
   class Resource
-    attr_accessor :id
+    attr_reader :id
     def initialize(params = {})
       @id ||= params[:id]
       raise ArgumentError, 'Id must be specified!' if @id.blank?

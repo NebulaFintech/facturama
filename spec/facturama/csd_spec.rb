@@ -17,14 +17,24 @@ RSpec.describe Facturama::Csd do
     end
   end
 
-  context 'when handling CSDs' do
+  context 'when performing valid requests' do
+
+    let(:csd) { Facturama::Csd.new(sample_csd) }
+
     it 'creates a CSD and deletes it' do
-      csd = Facturama::Csd.new(sample_csd)
-      expect(csd).to be_a(Facturama::Csd)
       csd.save
       expect(csd).to be_a(Facturama::Csd)
+      puts csd.inspect
       csd.delete
       expect(csd).to be_a(Facturama::Csd)
+    end
+  end
+
+  context 'when handling errors' do
+    it 'throws a runtime error' do
+      expect do
+        Facturama::Csd.create(id: 'id')
+      end.to raise_error('The request is invalid.')
     end
   end
 end
