@@ -24,7 +24,9 @@ RSpec.describe Facturama::Csd do
     it 'creates a CSD and deletes it' do
       csd.save
       expect(csd).to be_a(Facturama::Csd)
-      puts csd.inspect
+      csd2 = Facturama::Csd.find(csd.id)
+      expect(csd2.id).to eq(csd.id)
+      expect(Facturama::Csd.all.count).to eq 1
       csd.delete
       expect(csd).to be_a(Facturama::Csd)
     end

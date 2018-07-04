@@ -8,7 +8,7 @@ module Facturama
       raise ArgumentError, 'Id must be specified!' if @id.blank?
       set_instance_variables
       params.each do |k, v|
-        send(k + '=', v)
+        send(k.to_s.underscore + '=', v)
       end
     end
 
