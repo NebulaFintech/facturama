@@ -6,37 +6,37 @@ RSpec.describe Facturama::Requestor do
     Facturama.class_exec { self.configuration = nil }
   end
 
-  describe "#initialize" do
-    it "fails if no configuration block has been called" do
+  describe '#initialize' do
+    it 'fails if no configuration block has been called' do
       expect do
         Facturama::Requestor.new
-      end.to raise_error("Facturama.configure has not been called!")
+      end.to raise_error('Facturama.configure has not been called!')
     end
 
-    context "With configuration" do
-      it "fails if an user is not configured" do
+    context 'With configuration' do
+      it 'fails if an user is not configured' do
         Facturama.configure do |config|
         end
 
         expect do
           Facturama::Requestor.new
-        end.to raise_error("User has not been set!")
+        end.to raise_error('User has not been set!')
       end
 
-      it "fails if a password is not configured" do
+      it 'fails if a password is not configured' do
         Facturama.configure do |config|
-          config.user = "my_user"
+          config.user = 'my_user'
         end
 
         expect do
           Facturama::Requestor.new
-        end.to raise_error("Password has not been set!")
+        end.to raise_error('Password has not been set!')
       end
 
-      it "does not fail if everything is configured" do
+      it 'does not fail if everything is configured' do
         Facturama.configure do |config|
-          config.user = "my_user"
-          config.password = "my_password"
+          config.user = 'my_user'
+          config.password = 'my_password'
         end
 
         expect do

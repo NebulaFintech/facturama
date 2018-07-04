@@ -7,7 +7,7 @@ module Facturama
     include Mixins::Save
     include Mixins::Update
     include Mixins::Find
-    include Mixins::All
+    include Mixins::Where
 
     ATTR_IVARS = %i[rfc certificate private_key private_key_password upload_date].freeze
 

@@ -7,8 +7,8 @@ module Facturama
     end
 
     class << self
-      def resource_url
-        'api-lite/' + name.demodulize.to_s.camelize(:lower).pluralize
+      def resource_url(non_restful_path = '')
+        'api-lite/' + non_restful_path + name.demodulize.to_s.camelize(:lower).pluralize
       end
     end
   end

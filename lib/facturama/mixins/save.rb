@@ -3,9 +3,9 @@
 module Facturama
   module Mixins
     module Save
-      def save
+      def save(url = self.class.resource_url)
         requestor = Requestor.new
-        response = requestor.request(self.class.resource_url, :post, self.class.parsed_params(self.to_h))
+        response = requestor.request(url, :post, self.class.parsed_params(to_h))
         self
       end
     end

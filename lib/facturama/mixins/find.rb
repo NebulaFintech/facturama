@@ -4,9 +4,9 @@ module Facturama
   module Mixins
     module Find
       module ClassMethods
-        def find(id)
+        def find(id, url = resource_url)
           requestor = Requestor.new
-          response = requestor.request(resource_url + '/' + id, :get)
+          response = requestor.request(url + '/' + id, :get)
           new(response)
         end
       end

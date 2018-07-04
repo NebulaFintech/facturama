@@ -4,9 +4,9 @@ module Facturama
   module Mixins
     module Create
       module ClassMethods
-        def create(params = {})
+        def create(params = {}, url = resource_url)
           requestor = Requestor.new
-          response = requestor.request(resource_url, :post, parsed_params(params))
+          response = requestor.request(url, :post, parsed_params(params))
           new(params)
         end
       end

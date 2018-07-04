@@ -3,9 +3,9 @@
 module Facturama
   module Mixins
     module Delete
-      def delete
+      def delete(url = self.class.resource_url)
         requestor = Requestor.new
-        response = requestor.request(self.class.resource_url + '/' + id, :delete)
+        response = requestor.request(url + '/' + id, :delete)
         self
       end
     end

@@ -6,9 +6,10 @@ require 'facturama/mixins/delete'
 require 'facturama/mixins/save'
 require 'facturama/mixins/update'
 require 'facturama/mixins/find'
-require 'facturama/mixins/all'
+require 'facturama/mixins/where'
 require 'facturama/api_lite'
 require 'facturama/csd'
+require 'facturama/cfdi'
 
 module Facturama
   require 'active_support'

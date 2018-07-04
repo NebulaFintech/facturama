@@ -21,7 +21,7 @@ module Facturama
     def to_h
       h = {}
       self.class::ATTR_IVARS.each do |ivar|
-        h[ivar] = self.send(ivar)
+        h[ivar] = send(ivar)
       end
       h
     end

@@ -2,14 +2,18 @@
 
 module Facturama
   module Mixins
-    module All
+    module Where
       module ClassMethods
-        def all
+        def where(params = {}, url = resource_url)
           requestor = Requestor.new
-          response = requestor.request(resource_url, :get)
+          response = requestor.request(url, :get, parsed_params(params))
           response.map do |r|
             new(r)
           end
+        end
+
+        def all(url = resource_url)
+          where({}, url)
         end
       end
 
